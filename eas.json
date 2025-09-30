@@ -1,0 +1,49 @@
+{
+  "cli": {
+    "version": ">= 11.7.0",
+    "appVersionSource": "remote"
+  },
+  "build": {
+    "development": {
+      "distribution": "internal",
+      "autoIncrement": true,
+      "environment": "development",
+      "android": { "gradleCommand": ":app:bundleRelease" }
+    },
+    "preview": {
+      "distribution": "internal",
+      "autoIncrement": true,
+      "environment": "preview"
+    },
+    "internal": {
+      "distribution": "internal",
+      "autoIncrement": true,
+      "environment": "preview",
+      "android": { "gradleCommand": ":app:bundleRelease" }
+    },
+    "production": {
+      "autoIncrement": true,
+      "environment": "production",
+      "android": { "gradleCommand": ":app:bundleRelease" }
+    },
+    "my-profile": {
+      "autoIncrement": true,
+      "environment": "production",
+      "android": { "gradleCommand": ":app:bundleRelease" }
+    }
+  },
+  "submit": {
+    "internal": {
+      "android": {
+        "track": "internal",
+        "serviceAccountKeyPath": "./google-play-service-account.json"
+      }
+    },
+    "production": {
+      "android": {
+        "track": "production",
+        "serviceAccountKeyPath": "./google-play-service-account.json"
+      }
+    }
+  }
+}
